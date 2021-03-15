@@ -21,7 +21,7 @@
 	<table>
 		<tr>
 			<td><img src="iconXML.png" alt="icone d'image XML" style="height: 20px"></td>
-			<td><h1>/ Liste de films</h1></td>
+			<td><h1>/ Liste de films2</h1></td>
 		</tr>
 	</table>
 </header>
@@ -83,14 +83,12 @@
 
 		for(i = 0; i < x.length; i++)
 		{
-			console.log(x[i].getAttribute('idreal'));
-			console.log(selectObject.value);
 
-			//if(x[i].getAttribute('idreal') == selectObject.value)
-			//{
-				//console.log(x[i].firstChild);
+			if(x[i].getAttribute('idreal') == selectObject.value)
+			{
+				console.log(x[i].firstChild);
 				//Ici, afficher nom du film correspondant au x[i]
-			//}
+			}
 		}
 
 	}

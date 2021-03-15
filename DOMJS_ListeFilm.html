@@ -40,6 +40,8 @@
 
 
 <script type="text/javascript">
+
+	var x = XMLDoc.getElementsByTagName('film');
 	
 	function Init()
 	{
@@ -53,7 +55,7 @@
 			 	var XMLDoc = parser.parseFromString(this.responseText, "text/html");
 				var liste = document.getElementById('id_selection_idReal');
 
-			 	var x = XMLDoc.getElementsByTagName('film');
+			 	
 
 			 	//Boucle ajoutant les options dans le select
 			 	for(i = 0; i < x.length; i++)

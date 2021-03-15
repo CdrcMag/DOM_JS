@@ -21,7 +21,7 @@
 	<table>
 		<tr>
 			<td><img src="iconXML.png" alt="icone d'image XML" style="height: 20px"></td>
-			<td><h1>/ Liste de films2</h1></td>
+			<td><h1>/ Liste de films</h1></td>
 		</tr>
 	</table>
 </header>
@@ -80,6 +80,7 @@
 	{
 
 		var x = xmlStr.getElementsByTagName('film');
+		liste.innerHTML = '';
 
 		for(i = 0; i < x.length; i++)
 		{

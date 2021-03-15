@@ -21,7 +21,7 @@
 	<table>
 		<tr>
 			<td><img src="iconXML.png" alt="icone d'image XML" style="height: 20px"></td>
-			<td><h1>/ Liste de films</h1></td>
+			<td><h1>/ Liste de films1</h1></td>
 		</tr>
 	</table>
 </header>
@@ -41,7 +41,7 @@
 
 <script type="text/javascript">
 
-	
+	var xmlStr;
 	
 	function Init()
 	{
@@ -53,6 +53,7 @@
 	        {
 	        	var parser = new DOMParser();
 				var XMLDoc = parser.parseFromString(this.responseText, "text/html");
+				xmlStr = parser.parseFromString(this.responseText, "text/html");
 				var x = XMLDoc.getElementsByTagName('film');
 				var liste = document.getElementById('id_selection_idReal');
 
@@ -77,12 +78,10 @@
 
 	function OnSelectDisplay(selectObject) 
 	{
-		//console.log(selectObject.value);
-		var parser = new DOMParser();
-		var XMLDoc = parser.parseFromString(this.responseText, "text/html");
-		var x = XMLDoc.getElementsByTagName('film');
 
-		for(i = 0; i < x.length; i++)
+		var x = xmlStr.getElementsByTagName('film');
+
+		for(i = 0; i < xmlStr.length; i++)
 		{
 			console.log(x[i].getAttribute('idreal'));
 			console.log(selectObject.value);

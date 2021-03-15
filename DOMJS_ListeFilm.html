@@ -41,9 +41,7 @@
 
 <script type="text/javascript">
 
-	var parser = new DOMParser();
-	var XMLDoc = parser.parseFromString(this.responseText, "text/html");
-	var x = XMLDoc.getElementsByTagName('film');
+	
 	
 	function Init()
 	{
@@ -53,10 +51,10 @@
    	 	{
 	        if (xhttp.readyState == 4 && xhttp.status == 200)//Quand la requête est terminée
 	        {
-	        	
+	        	var parser = new DOMParser();
+				var XMLDoc = parser.parseFromString(this.responseText, "text/html");
+				var x = XMLDoc.getElementsByTagName('film');
 				var liste = document.getElementById('id_selection_idReal');
-
-			 	
 
 			 	//Boucle ajoutant les options dans le select
 			 	for(i = 0; i < x.length; i++)
@@ -79,7 +77,10 @@
 
 	function OnSelectDisplay(selectObject) 
 	{
-		console.log(selectObject.value);
+		//console.log(selectObject.value);
+		var parser = new DOMParser();
+		var XMLDoc = parser.parseFromString(this.responseText, "text/html");
+		var x = XMLDoc.getElementsByTagName('film');
 
 		for(i = 0; i < x.length; i++)
 		{

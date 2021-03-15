@@ -21,7 +21,7 @@
 	<table>
 		<tr>
 			<td><img src="iconXML.png" alt="icone d'image XML" style="height: 20px"></td>
-			<td><h1>/ Liste de films1</h1></td>
+			<td><h1>/ Liste de films</h1></td>
 		</tr>
 	</table>
 </header>
@@ -81,7 +81,7 @@
 
 		var x = xmlStr.getElementsByTagName('film');
 
-		for(i = 0; i < xmlStr.length; i++)
+		for(i = 0; i < x.length; i++)
 		{
 			console.log(x[i].getAttribute('idreal'));
 			console.log(selectObject.value);

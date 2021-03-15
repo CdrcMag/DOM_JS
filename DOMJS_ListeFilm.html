@@ -41,6 +41,8 @@
 
 <script type="text/javascript">
 
+	var parser = new DOMParser();
+	var XMLDoc = parser.parseFromString(this.responseText, "text/html");
 	var x = XMLDoc.getElementsByTagName('film');
 	
 	function Init()
@@ -51,8 +53,7 @@
    	 	{
 	        if (xhttp.readyState == 4 && xhttp.status == 200)//Quand la requête est terminée
 	        {
-	        	var parser = new DOMParser();
-			 	var XMLDoc = parser.parseFromString(this.responseText, "text/html");
+	        	
 				var liste = document.getElementById('id_selection_idReal');
 
 			 	

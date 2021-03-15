@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Suite cours - HTTP Request</title>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="iconXML.png">
+
+<style type="text/css">
+
+html
+{
+	font-family: "Times New Roman", Times, serif;
+}	
+
+
+</style>
+</head>
+<body>
+
+<header>
+	<table>
+		<tr>
+			<td><a href="index.html">Accueil</a></td>
+			<td><a href="DOMJS_XML_1.html">Requête HTTP</a></td>
+			<td><a href="DOMJS_ListeFilm.html">Liste de films</a></td>
+		</tr>
+	</table>
+<!------------------------------------------------------------------>
+	<table>
+		<tr>
+			<td><img src="iconXML.png" alt="icone d'image XML" style="height: 20px"></td>
+			<td><h1>/ Liste de films</h1></td>
+		</tr>
+	</table>
+</header>
+	
+
+<hr>
+	Informations :
+	<ul>
+		<li>On récupère un fichier xml grâce à une requête HTTP.</li>
+		<li>L'objectif est d'afficher le contenu de l'xml dans la page appelante.</li>
+		<li>En utilisant la variable xhttp</li>
+		<li>Pour créer un objet XMLHttpRequest : "var xhttp = new XMLHttpRequest();"</li>
+		<li>La propriété readyState contient le statut de l’objet xhttp créé</li>
+		<li>L’événement onreadystatechange est déclenché chaque fois que readyState change</li>
+		<li>Lors d'une demande de serveur, le readyState passe de 0 à 4:
+			<ul>
+				<li>0: demande non initialisée</li>
+				<li>1: connexion au serveur établie</li>
+				<li>2: demande reçue</li>
+				<li>3: demande de traitement</li>
+				<li>4: demander fini et la réponse est prête</li>
+			</ul>
+		</li>
+		<li>Statut 200 : OK ; Statut 404 : ressource non trouvée.</li>
+		<li>La méthode open (sans argument pour un GET).</li>
+		<li>La méthode GET est plus simple que POST et utilisable dans la plupart des cas.</li>
+		<li>L'URL - un fichier sur un serveur</li>
+		<li>les pages html et les fichiers web doivent être sur le même serveur.</li>
+		<li>Le dernier paramètre permet de définir si async ou non (executer des taches de fond, ne pas attendre de réponse du serveur)</li>
+
+	</ul>
+
+<hr>
+
+<h2>Requête .xml</h2>
+
+<p>
+	Utilisation d'une requête HTTP pour récupérer le contenu d'un fichier .xml, et l'afficher ordonné dans un tableau.
+</p>
+
+<!-- Bouton qui lance la méthode de chargement du xml -->
+<button onclick="getXML();">Lancement du chargement du xml</button>
+
+<!-- Tableau recevant les valeurs -->
+<div id="table">
+
+    <textarea id="area_films"  rows="20" cols="50"></textarea>
+    <textarea id="area_titres"  rows="20" cols="50"></textarea>
+    <textarea id="area_infos"  rows="20" cols="80"></textarea>
+
+</div>
+
+<script type="text/javascript">
+
+	function getXML()
+	{
+		//Création de l'objet
+    	var xhttp = new XMLHttpRequest();
+
+   	 	xhttp.onreadystatechange = function() 
+   	 	{
+	        if (xhttp.readyState == 4 && xhttp.status == 200)//Quand la requête est terminée
+	        {
+	        	//Récupère le contenu du .xml
+	            var parser = new DOMParser();
+	            XMLDoc = parser.parseFromString(this.responseText, "text/html");
+
+	            //Récupère les éléments du .xml
+	            document.getElementById("area_films").innerHTML = this.responseText;
+	            var films = XMLDoc.getElementsByTagName("titre");
+	            var titres = "";
+	            var infos = "";
+	            var reals = XMLDoc.getElementsByTagName("realisateur");
+	            var dates = XMLDoc.getElementsByTagName("date");
+	            
+	            //Boucle dans ce fichier pour récupérer les informations nécéssaires
+	            for (let index = 0; index < films.length; index++) 
+	            {
+	                const element = films[index];
+	                const element2 = reals[index];
+	                const element3 = dates[index];
+
+	                titres = titres + element.innerHTML + "\n";
+	                infos = infos + "Film : " + element.innerHTML + "--- Réalisateur : " + element2.innerHTML + "--- Date : " + element3.innerHTML + "\n";
+            	}
+
+            document.getElementById("area_titres").innerHTML = titres;
+            document.getElementById("area_infos").innerHTML = infos;
+        }
+    };
+
+    xhttp.open("GET", "MesFilms.xml", true);
+    xhttp.send();
+}
+
+</script>
+
+
+</body>
+
+<footer>
+	<p style="font-style: italic;">Cédric Maggay - Ludus Académie Strasbourg - c.maggay@ludus-academie.com</p>
+</footer>
+</html>

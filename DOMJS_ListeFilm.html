@@ -86,8 +86,12 @@
 
 			if(x[i].getAttribute('idreal') == selectObject.value)
 			{
-				console.log(x[i].firstChild.nextSibling.firstChild.textContent);
+				//console.log(x[i].firstChild.nextSibling.firstChild.textContent);
 				//Ici, afficher nom du film correspondant au x[i]
+				var li = document.createElement('li');
+				var txt = document.createTextNode(x[i].firstChild.nextSibling.firstChild.textContent);
+				li.appendChild(txt);
+				document.getElementById('listeResultat').appendChild(li);
 			}
 		}
 
@@ -99,6 +103,11 @@
 
 </script>
 
+
+<ul id="listeResultat">
+	
+</ul>
+	
 
 
 

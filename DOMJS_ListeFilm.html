@@ -6,8 +6,19 @@
 	<meta charset="utf-8">
 	<link rel="icon" type="image/png" href="iconXML.png">
 
+	<style type="text/css">
+		#bg_img
+		{
+			/*background: no-repeat url("img_background.jpg");*/
+			background-color: #FFFFFF;
+
+		}
+	</style>
+
+
 </head>
 
+<!-- <body> -->
 <body onload=" Init();">
 <header>
 	<table>
@@ -28,7 +39,8 @@
 	
 
 
-</body>
+<!-- Image de background -->
+<div id="bg_img"></div>
 
 <!-- Créer une liste de sélection des idReal. Quand selectionné, afficher en dessous l'ensemble des films du réalisateur, avec du css -->
 
@@ -36,6 +48,7 @@
 	Un numéro dans la liste suivante correspond à un ID de réalisateur. En selectionnant l'un d'eux, la liste de leurs films apparaitra.
 	Le numéro 13 possède plusieurs films.
 </p>
+
 
 
 <select name="select_idReal" id="id_selection_idReal" onchange="OnSelectDisplay(this)">
@@ -123,4 +136,6 @@
 <footer>
 	<p style="font-style: italic;">Cédric Maggay - Ludus Académie Strasbourg - c.maggay@ludus-academie.com</p>
 </footer>
+
+</body>
 </html>

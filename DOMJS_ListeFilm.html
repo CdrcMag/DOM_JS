@@ -40,7 +40,7 @@
 
 <!-- <select name="select_idReal" id="id_selection_idReal" onchange="OnSelectDisplay(this)" multiple> -->
 
-<select name="select_idReal" id="id_selection_idReal" onchange="OnSelectDisplay.apply(this, this);" multiple>
+<select name="select_idReal" id="id_selection_idReal" onchange="OnSelectDisplay(this);" multiple>
 	<option id="option1">Veuillez selectionner une option</option>
 </select>
 
@@ -92,6 +92,11 @@
 		var x = xmlStr.getElementsByTagName('film');
 		var liste = document.getElementById('listeResultat');
 		liste.innerHTML = '';
+
+		var listeOptions = document.getElementById('id_selection_idReal');
+		console.table(listeOptions);
+
+
 
 		for(i = 0; i < x.length; i++)
 		{

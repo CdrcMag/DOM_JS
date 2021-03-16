@@ -56,7 +56,7 @@
 	function ShowResult(xml)
 	{
 		// path = "/lesfilms/film[date>1950]/titre";
-		path = "/lesfilms/film[date>1950 and /titre/text() = 'Autre film']";
+		path = "/lesfilms/film[date>1950 and titre/text() = 'Autre film']";
 
 
 		if(xml.evaluate)

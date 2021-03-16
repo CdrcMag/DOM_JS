@@ -41,9 +41,8 @@
 <!-- <select name="select_idReal" id="id_selection_idReal" onchange="OnSelectDisplay(this)" multiple> -->
 <select name="select_idReal" id="id_selection_idReal" multiple>
 	<option id="option1">Veuillez selectionner une option</option>
-
-	<option><button onclick="OnSelectDisplay(this);">Montrer les films</button><option>
 </select>
+<button onclick="OnSelectDisplay(this);">Montrer les films</button>
 
 
 
@@ -88,7 +87,7 @@
 
 	}
 
-	function OnSelectDisplay(selectObject) 
+	function OnSelectDisplay(selectObject[]) 
 	{
 
 		var x = xmlStr.getElementsByTagName('film');
@@ -97,14 +96,17 @@
 
 		for(i = 0; i < x.length; i++)
 		{
-
-			if(x[i].getAttribute('idreal') == selectObject.value)
+			for(var j = 0; j < selectObject.length; j++)
 			{
-				var li = document.createElement('li');
-				var txt = document.createTextNode(x[i].firstChild.nextSibling.firstChild.textContent);
-				li.appendChild(txt);
-				document.getElementById('listeResultat').appendChild(li);
+				if(x[i].getAttribute('idreal') == selectObject[j].value)
+				{
+					var li = document.createElement('li');
+					var txt = document.createTextNode(x[i].firstChild.nextSibling.firstChild.textContent);
+					li.appendChild(txt);
+					document.getElementById('listeResultat').appendChild(li);
+				}
 			}
+			
 		}
 
 	}

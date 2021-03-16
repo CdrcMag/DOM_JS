@@ -21,7 +21,7 @@
 	<table>
 		<tr>
 			<td><img src="iconXML.png" alt="icone d'image XML" style="height: 20px"></td>
-			<td><h1>/ Accueil</h1></td>
+			<td><h1 onclick="EasterEgg();">/ Accueil</h1></td>
 		</tr>
 	</table>
 </header>
@@ -31,8 +31,29 @@
 </p>
 
 
+<img id="img_easter" src="ImageTest.gif" alt="Clown" style="display: none;">
 
 
+
+<script type="text/javascript">
+	var state = 0;
+	var img = document.getElementById('img_easter');
+
+	function EasterEgg() 
+	{
+		state = state + 1;
+		if(state % 2 == 0)
+		{
+			img.style.display = "inline";
+		}
+		else
+		{
+			img.style.display = "none";
+		}
+	}
+	
+
+</script>
 
 
 <footer>

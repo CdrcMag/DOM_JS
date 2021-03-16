@@ -58,7 +58,6 @@
 		// path = "/lesfilms/film[date>1950]/titre";
 		path = "/lesfilms/film[date>1950 and titre/text() = 'Autre film']";
 
-
 		if(xml.evaluate)
 		{
 			var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
@@ -66,7 +65,7 @@
 
 			//Tests de chemins différents
 			console.log("Node : " + result);
-			console.table("Content : " + result.textContent);
+			console.log("Content : " + result.textContent);
 
 
 			var li = "";

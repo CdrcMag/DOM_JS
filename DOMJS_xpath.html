@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Xpath</title>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="iconXML.png">
+
+</head>
+
+<!-- <body> -->
+<body>
+<header>
+	<table>
+		<tr>
+			<td><a href="index.html">Accueil</a></td>
+			<td><a href="DOMJS_XML_1.html">Requête HTTP</a></td>
+			<td><a href="DOMJS_ListeFilm.html">Liste de films</a></td>
+			<td><a href="DOMJS_xpath.html">xpath</a></td>
+		</tr>
+	</table>
+<!------------------------------------------------------------------>
+	<table>
+		<tr>
+			<td><img src="iconXML.png" alt="icone d'image XML" style="height: 20px"></td>
+			<td><h1>/ XPATH</h1></td>
+		</tr>
+	</table>
+</header>
+
+
+
+<body onload="Init();">
+
+
+<script type="text/javascript">
+	
+	function Init()
+	{
+		var xhttp = new XMLHttpRequest();
+
+   	 	xhttp.onreadystatechange = function() 
+   	 	{
+   	 		//Quand la requête est terminée
+	        if (xhttp.readyState == 4 && xhttp.status == 200)
+	        {
+	        	ShowResult(xhttp.responseXML);
+        	}
+   		}
+
+	    xhttp.open("GET", "MesFilms.xml", true);
+	    xhttp.send();
+	}
+
+
+
+	function ShowResult(xml)
+	{
+		var txt = "";
+		path = "/lesfilms/film/titre";
+
+		if(xml.evaluate)
+		{
+			var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
+			var result = nodes.iterateNext();
+			while(result)
+			{
+				txt += result.childNodes[0].nodeValue + "\n";
+				result = nodes.iterateNext();
+			}
+		}
+	}
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

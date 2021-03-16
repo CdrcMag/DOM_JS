@@ -79,7 +79,7 @@ html
     <textarea id="area_films"  rows="20" cols="50"></textarea>
     <textarea id="area_titres"  rows="20" cols="50"></textarea>
     <textarea id="area_infos"  rows="20" cols="80"></textarea>
-    <textarea id="area_split" rows="20" cols="50"></textarea>
+    <textarea id="area_split" rows="20" cols="100"></textarea>
 
 </div>
 
@@ -88,46 +88,6 @@ html
 
 	function splitter()
 	{
-		//var xhttp = new XMLHttpRequest();
-
-		//var strSplitter = "TexteCoursDomJS###Test###FinDuTexte";
-		//const result = strSplitter.split('###');
-		//console.table(result);
-
-
-		// var xmlStr = "<etudiants><etudiant category=\"etudiant_maths\"><nom>Dupont</nom><prenom>Jacques</prenom><email>j.dupont@wanadoo.com</email><dateDeNaissance>01/12/1955</dateDeNaissance></etudiant> <etudiant category=\"etudiant_maths\"><nom>Pass</nom><prenom>Game</prenom><email>g.pass@hotmail.com</email><dateDeNaissance>05/10/2020</dateDeNaissance></etudiant> <etudiant category=\"etudiant_maths\"><nom>Delaville</nom><prenom>Marianne</prenom><email>m.delaville@gmail.com</email><dateDeNaissance>03/03/1976</dateDeNaissance></etudiant></etudiants>";
-
-		// const noms = xmlStr.split('<nom>');
-
-		// const nomFinal = noms[1].split('</nom>');
-
-		// var tableauNoms = [''];
-
-		// for(var i = 1; i < noms.length; i++)
-		// {
-		// 	tableauNoms[i-1] = noms[i].split('</nom>'); 
-		// }
-
-
-
-		// for (var i = 0; i <result.length; i++)
-		// {
-		// 	const step2 = result.split('<nom>');
-		// 	console.table(step2);
-		// }
-		
-
-		//console.log(tableauNoms[0][0]);
-
-
-
-
-
-
-
-
-
-
 
 		var xhttp = new XMLHttpRequest();
 
@@ -154,8 +114,7 @@ html
 					tableauReal[i-1] = real[i].split('</realisateur>'); 
 					tableauDates[i-1] = dates[i].split('</date>'); 
 
-
-					document.getElementById('area_split').innerHTML += "Titre : " + tableauNoms[i-1][0] + " / Realisateur : " + tableauReal[i-1][0] + " / Date : " + tableauDates[i-1][0];
+					document.getElementById('area_split').innerHTML += "Titre : " + tableauNoms[i-1][0] + " / Realisateur : " + tableauReal[i-1][0] + " / Date : " + tableauDates[i-1][0] + "\n";
 				}
 
 				

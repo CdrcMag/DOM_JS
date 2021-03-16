@@ -51,17 +51,17 @@
 	    xhttp.send();
 	}
 
-
+//Titre 1, dernier titre, valeur contenue dans le noeud, + les films dont la date > 1900
 
 	function ShowResult(xml)
 	{
-		var txt = "";
-		path = "/lesfilms/film/titre";
+		path = "/lesfilms/film";
 
 		if(xml.evaluate)
 		{
-			var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
+			var nodes = xml.evaluate(path, xml, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
 			var result = nodes.iterateNext();
+			console.log(nodes);
 
 			var li = "";
 			while(result)
@@ -70,21 +70,11 @@
 				var text = document.createTextNode(result.childNodes[0].nodeValue + "\n");
 				li.appendChild(text);
 				document.getElementById('listeResultat').appendChild(li);
-
-
-				//txt += result.childNodes[0].nodeValue + "\n";
 				result = nodes.iterateNext();
 			}
 		}
 
 	}
-
-
-
-
-
-
-
 </script>
 
 

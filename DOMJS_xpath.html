@@ -56,7 +56,6 @@
 	function ShowResult(xml)
 	{
 		var txt = "";
-		var el = document.getElementById('result');
 		path = "/lesfilms/film/titre";
 
 		if(xml.evaluate)
@@ -65,13 +64,17 @@
 			var result = nodes.iterateNext();
 			while(result)
 			{
-				txt += result.childNodes[0].nodeValue + "\n";
+				var li = document.createElement('li');
+				var text = result.childNodes[0].nodeValue + "\n";
+				li.appendChild(txt);
+				document.getElementById('listeResultat').appendChild(li);
+
+
+				//txt += result.childNodes[0].nodeValue + "\n";
 				result = nodes.iterateNext();
 			}
 		}
 
-		var textFinal = document.createTextNode(txt);
-		el.appendChild(textFinal);
 	}
 
 
@@ -83,7 +86,7 @@
 </script>
 
 
-<div id="result"></div>
+<ul id="listeResultat"></ul>
 
 
 

@@ -62,11 +62,12 @@
 		{
 			var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
 			var result = nodes.iterateNext();
+
+			var li = "";
 			while(result)
 			{
-				var li = document.createElement('li');
-				var text = "";
-				text = result.childNodes[0].nodeValue + "\n";
+				li = document.createElement('li');
+				var text = document.createTextNode(result.childNodes[0].nodeValue + "\n");
 				li.appendChild(text);
 				document.getElementById('listeResultat').appendChild(li);
 

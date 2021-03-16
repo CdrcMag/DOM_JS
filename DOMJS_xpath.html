@@ -55,13 +55,12 @@
 
 	function ShowResult(xml)
 	{
-		path = "/lesfilms/film/titre";
+		path = "/lesfilms/film[date>1950]/titre";
 
 		if(xml.evaluate)
 		{
 			var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
 			var result = nodes.iterateNext();
-			console.log(nodes);
 
 			var li = "";
 			while(result)

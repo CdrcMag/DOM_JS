@@ -138,10 +138,10 @@ html
 	        	//Traitement
 	        	//console.log("Chargement terminé");
 	        	var parser = new DOMParser();
-	            XMLDoc = parser.parseFromString(this.responseText, "text/html");
+	            strDoc = parser.parseFromString(this.responseText, "text/html");
 
 
-	        	const noms = XMLDoc.split('<nom>');
+	        	const noms = strDoc.split('<nom>');
 
 				var tableauNoms = [''];
 

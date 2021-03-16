@@ -63,7 +63,12 @@
 		{
 			var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
 			var result = nodes.iterateNext();
-			console.log(result);
+
+			//Tests de chemins différents
+			console.log("Node : " + result);
+			console.log("Content : " + result.textContent);
+
+
 			var li = "";
 			while(result)
 			{

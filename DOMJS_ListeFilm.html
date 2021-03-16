@@ -40,7 +40,7 @@
 
 <!-- <select name="select_idReal" id="id_selection_idReal" onchange="OnSelectDisplay(this)" multiple> -->
 
-<select name="select_idReal" id="id_selection_idReal" onchange="OnSelectDisplay(this);" multiple>
+<select name="select_idReal" id="id_selection_idReal" onchange="OnSelectDisplay.apply(this, this);" multiple>
 	<option id="option1">Veuillez selectionner une option</option>
 </select>
 

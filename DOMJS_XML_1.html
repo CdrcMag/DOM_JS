@@ -145,8 +145,9 @@ html
 				for(var i = 1; i < noms.length; i++)
 				{
 					tableauNoms[i-1] = noms[i].split('</titre>'); 
+					document.getElementById('area_split').innerHTML += "<br>" + tableauNoms[i-1][0];
 				}
-				document.getElementById('area_split').innerHTML += "<br>" + tableauNoms[0][0];
+
 				console.table(tableauNoms);
 	        }
 		}

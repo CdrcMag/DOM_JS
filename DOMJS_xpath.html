@@ -55,7 +55,8 @@
 
 	function ShowResult(xml)
 	{
-		var txt = document.getElementById('result');
+		var txt = "";
+		var el = document.getElementById('result');
 		path = "/lesfilms/film/titre";
 
 		if(xml.evaluate)
@@ -68,6 +69,9 @@
 				result = nodes.iterateNext();
 			}
 		}
+
+		var textFinal = document.createTextNode(txt);
+		el.appendChild(textFinal);
 	}
 
 

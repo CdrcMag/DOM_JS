@@ -48,6 +48,7 @@
 
 <script type="text/javascript">
 
+	//Variable globale qui reçoit le contenu du fichier xml (string)	
 	var xmlStr;
 	
 	function Init()
@@ -89,29 +90,33 @@
 	function OnSelectDisplay(selectObject) 
 	{
 
+		//Récupère les films
 		var x = xmlStr.getElementsByTagName('film');
+
+		//Récupère le conteneur dans lequel les résultats seront stockés
 		var liste = document.getElementById('listeResultat');
 		liste.innerHTML = '';
 
-		console.log(selectObject.selectedOptions[0]);
-		//var listeOptions = document.getElementById('id_selection_idReal');
-		//console.table(listeOptions);
-
+		//Si les options selectionnées du select correspondent 
+		//à des idreal de film dans le fichier, les ajoute à une liste
 		for(i = 0; i < x.length; i++)
 		{
 			for(var j = 0; j < selectObject.selectedOptions.length; j++)
 			{
 				if(x[i].getAttribute('idreal') == selectObject.selectedOptions[j].value)
 				{
+
+					//Créer un li contenant le titre du film, qui sera rajouté dans une liste
 					var li = document.createElement('li');
 					var txt = document.createTextNode(x[i].firstChild.nextSibling.firstChild.textContent);
 					li.appendChild(txt);
 					document.getElementById('listeResultat').appendChild(li);
+					//-------------------------------------------------------//
+
 				}
 			}
 			
 		}
-
 	}
 
 
@@ -120,7 +125,7 @@
 
 </script>
 
-
+<!-- Conteneur dans lequel la liste des films sera affichée -->
 <ul id="listeResultat">
 	
 </ul>

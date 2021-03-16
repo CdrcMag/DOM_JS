@@ -138,7 +138,7 @@ html
 	        	//Traitement
 	        	//console.log("Chargement terminé");
 	        	var parser = new DOMParser();
-	            strDoc = parser.parseFromString(this.responseText, "text/html");
+	            var strDoc = parser.parseFromString(this.responseText, "text/html");
 
 
 	        	const noms = strDoc.split('<nom>');

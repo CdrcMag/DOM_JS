@@ -137,10 +137,10 @@ html
 	        {
 	        	//Traitement
 	        	//console.log("Chargement terminé");
-	        	var parser = new DOMParser();
-	            var strDoc = parser.parseFromString(this.responseText, "text/html");
+	        	//var parser = new DOMParser();
+	            //var strDoc = parser.parseFromString(this.responseText, "text/html");
 
-
+	            var strDoc = this.responseText;
 	        	const noms = strDoc.split('<nom>');
 
 				var tableauNoms = [''];

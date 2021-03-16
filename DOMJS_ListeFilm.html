@@ -93,15 +93,18 @@
 		var liste = document.getElementById('listeResultat');
 		liste.innerHTML = '';
 
-		var listeOptions = document.getElementById('id_selection_idReal');
-		console.table(listeOptions);
-
-
+		console.log(selectObject);
+		//var listeOptions = document.getElementById('id_selection_idReal');
+		//console.table(listeOptions);
 
 		for(i = 0; i < x.length; i++)
 		{
 			for(var j = 0; j < selectObject.length; j++)
 			{
+
+				//if(x[i].getAttribute('idreal') == listeOptions)
+
+
 				if(x[i].getAttribute('idreal') == selectObject[j].value)
 				{
 					var li = document.createElement('li');

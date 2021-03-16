@@ -139,34 +139,26 @@ html
 
 	            var strDoc = this.responseText;
 
-	            //Traitement des titres de films
+	            //Traitement
 	        	const titres = strDoc.split('<titre>');
+	        	const real = strDoc.split('<realisateur>');
+	        	const dates = strDoc.split('<date>');
+
 				var tableauNoms = [''];
+				var tableauReal= [''];
+				var tableauDates= [''];
+
 				for(var i = 1; i < titres.length; i++)
 				{
 					tableauNoms[i-1] = titres[i].split('</titre>'); 
-					document.getElementById('area_split').innerHTML += "Titre :" + tableauNoms[i-1][0];
-				}
-
-				//Traitement des réalisateurs de films
-	        	const real = strDoc.split('<realisateur>');
-				var tableauReal= [''];
-				for(var i = 1; i < real.length; i++)
-				{
 					tableauReal[i-1] = real[i].split('</realisateur>'); 
-					document.getElementById('area_split').innerHTML += " / Réalisateur : " + tableauReal[i-1][0];
-				}
-
-				//Traitement des dates de films
-	        	const dates = strDoc.split('<date>');
-				var tableauDates= [''];
-				for(var i = 1; i < dates.length; i++)
-				{
 					tableauDates[i-1] = dates[i].split('</date>'); 
-					document.getElementById('area_split').innerHTML += " / Date : " + tableauDates[i-1][0];
+
+
+					document.getElementById('area_split').innerHTML += "Titre : " + tableauNoms[i-1][0] + " / Realisateur : " + tableauReal[i-1][0] + " / Date : " + tableauDates[i-1][0];
 				}
 
-				//document.getElementById('area_split').innerHTML += "Titre : " + tableauNoms[i-1][0] + " / Realisateur : " + tableauReal[i-1][0] + " / Date : " + tableauDates[i-1][0];
+				
 	        }
 		}
 

@@ -65,7 +65,8 @@
 			while(result)
 			{
 				var li = document.createElement('li');
-				var text = result.childNodes[0].nodeValue + "\n";
+				var text = "";
+				text = result.childNodes[0].nodeValue + "\n";
 				li.appendChild(text);
 				document.getElementById('listeResultat').appendChild(li);
 

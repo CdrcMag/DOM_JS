@@ -135,21 +135,18 @@ html
    	 	{
 	        if (xhttp.readyState == 4 && xhttp.status == 200)//Quand la requête est terminée
 	        {
-	        	//Traitement
-	        	//console.log("Chargement terminé");
-	        	//var parser = new DOMParser();
-	            //var strDoc = parser.parseFromString(this.responseText, "text/html");
+
 
 	            var strDoc = this.responseText;
+
+	            //Traitement des titres de films
 	        	const noms = strDoc.split('<titre>');
-
 				var tableauNoms = [''];
-
 				for(var i = 1; i < noms.length; i++)
 				{
 					tableauNoms[i-1] = noms[i].split('</titre>'); 
 				}
-
+				document.getElementById('area_split').innerHTML += "<br>" + tableauNoms[0][0];
 				console.table(tableauNoms);
 	        }
 		}
@@ -160,7 +157,6 @@ html
     	xhttp.send();
 	}
 	
-
 
 
 

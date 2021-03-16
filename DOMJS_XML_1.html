@@ -15,7 +15,7 @@ html
 
 </style>
 </head>
-<body>
+<body onload="splitter();">
 
 <header>
 	<table>
@@ -79,8 +79,101 @@ html
     <textarea id="area_films"  rows="20" cols="50"></textarea>
     <textarea id="area_titres"  rows="20" cols="50"></textarea>
     <textarea id="area_infos"  rows="20" cols="80"></textarea>
+    <textarea id="area_split" rows="20" cols="50"></textarea>
 
 </div>
+
+<script type="text/javascript">
+	
+
+	function splitter()
+	{
+		//var xhttp = new XMLHttpRequest();
+
+		//var strSplitter = "TexteCoursDomJS###Test###FinDuTexte";
+		//const result = strSplitter.split('###');
+		//console.table(result);
+
+
+		// var xmlStr = "<etudiants><etudiant category=\"etudiant_maths\"><nom>Dupont</nom><prenom>Jacques</prenom><email>j.dupont@wanadoo.com</email><dateDeNaissance>01/12/1955</dateDeNaissance></etudiant> <etudiant category=\"etudiant_maths\"><nom>Pass</nom><prenom>Game</prenom><email>g.pass@hotmail.com</email><dateDeNaissance>05/10/2020</dateDeNaissance></etudiant> <etudiant category=\"etudiant_maths\"><nom>Delaville</nom><prenom>Marianne</prenom><email>m.delaville@gmail.com</email><dateDeNaissance>03/03/1976</dateDeNaissance></etudiant></etudiants>";
+
+		// const noms = xmlStr.split('<nom>');
+
+		// const nomFinal = noms[1].split('</nom>');
+
+		// var tableauNoms = [''];
+
+		// for(var i = 1; i < noms.length; i++)
+		// {
+		// 	tableauNoms[i-1] = noms[i].split('</nom>'); 
+		// }
+
+
+
+		// for (var i = 0; i <result.length; i++)
+		// {
+		// 	const step2 = result.split('<nom>');
+		// 	console.table(step2);
+		// }
+		
+
+		//console.log(tableauNoms[0][0]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+		xhttp.onreadystatechange = function() 
+   	 	{
+	        if (xhttp.readyState == 4 && xhttp.status == 200)//Quand la requête est terminée
+	        {
+	        	//Traitement
+	        	//console.log("Chargement terminé");
+	        	var parser = new DOMParser();
+	            XMLDoc = parser.parseFromString(this.responseText, "text/html");
+
+
+	        	const noms = XMLDoc.split('<nom>');
+
+				var tableauNoms = [''];
+
+				for(var i = 1; i < noms.length; i++)
+				{
+					tableauNoms[i-1] = noms[i].split('</nom>'); 
+				}
+
+				console.log(tableauNoms[0][0]);
+	        }
+		}
+
+		
+
+		xhttp.open("GET", "MesFilms.xml", true);
+    	xhttp.send();
+	}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
 
 <script type="text/javascript">
 

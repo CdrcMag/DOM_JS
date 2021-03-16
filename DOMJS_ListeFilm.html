@@ -38,7 +38,7 @@
 
 
 
-<select name="select_idReal" id="id_selection_idReal" onchange="OnSelectDisplay(this)">
+<select name="select_idReal" id="id_selection_idReal" onchange="OnSelectDisplay(this)" multiple>
 	<option id="option1">Veuillez selectionner une option</option>
 </select>
 
@@ -59,7 +59,10 @@
 	        {
 	        	var parser = new DOMParser();
 				var XMLDoc = parser.parseFromString(this.responseText, "text/html");
+
+				//Le charge dans une variable globale
 				xmlStr = parser.parseFromString(this.responseText, "text/html");
+
 				var x = XMLDoc.getElementsByTagName('film');
 				var liste = document.getElementById('id_selection_idReal');
 
@@ -94,8 +97,6 @@
 
 			if(x[i].getAttribute('idreal') == selectObject.value)
 			{
-				//console.log(x[i].firstChild.nextSibling.firstChild.textContent);
-				//Ici, afficher nom du film correspondant au x[i]
 				var li = document.createElement('li');
 				var txt = document.createTextNode(x[i].firstChild.nextSibling.firstChild.textContent);
 				li.appendChild(txt);
